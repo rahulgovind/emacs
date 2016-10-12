@@ -1,18 +1,24 @@
 ;;; epl-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("epl-pkg.el" "epl.el") (22271 57945 744142
-;;;;;;  40000))
+;;;### (autoloads "actual autoloads are elsewhere" "epl" "../../../../.emacs.d/elpa/epl-0.8/epl.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/epl-0.8/epl.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "epl" '("epl-")))
 
 ;;;***
 
-(provide 'epl-autoloads)
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/epl-0.8/epl-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/epl-0.8/epl.el") (0 0 0 0))
+
+;;;***
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; epl-autoloads.el ends here

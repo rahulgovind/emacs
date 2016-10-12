@@ -7,9 +7,9 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) 
 
-(projectile-global-mode)
-
-(global-auto-revert-mode t)
+(setq package-selected-packages
+      '(projectile flx-ido linum-relative smart-tabs-mode adapative-wrap web-mode magit))
+(package-install-selected-packages)
 
 (require 'ido)
 (require 'flx-ido)
@@ -17,15 +17,7 @@
 (flx-ido-mode 1)
 (put 'erase-buffer 'disabled nil)
 
-(require 'auto-complete)
-(require 'auto-complete-config)
-(global-auto-complete-mode t)
 
-(load-file "~/.emacs.d/cython-mode.el")
-; don't split windows
-(setq py-split-windows-on-execute-p t)
-
-(setq py-smart-indentation t)
 ;-------------------------;
 ;;; Syntax Highlighting ;;;
 ;-------------------------;
@@ -76,65 +68,14 @@
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 (add-hook 'php-mode-hook 'my-php-mode-hook)
 
-;; replace the `completion-at-point' and `complete-symbol' bindings in
-;; irony-mode's buffers by irony-mode's function
-(defun my-irony-mode-hook ()
-  (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
-  (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async)
-  (company-mode t)
-  (global-set-key (kbd "C-;") 'company-complete-common))
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
 (setq-default tab-width 4)
 (smart-tabs-insinuate 'c 'c++)
 
 (c-set-offset 'inline-open '0)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default)))
- '(package-selected-packages
-   (quote
-	(php-mode magit yasnippet yaml-mode web-mode use-package smart-tabs-mode relative-line-numbers projectile neotree mmm-mode linum-relative flx-ido fill-column-indicator company-irony color-theme-modern auto-complete adaptive-wrap)))
- '(safe-local-variable-values (quote ((c-basic-offset 4) (eval smart-tabs-mode nil)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-
-;; Some corrections for UTF
-(setq locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-
 
 (global-visual-line-mode 1)
 (require 'adaptive-wrap)
 (add-hook 'visual-line-mode-hook 'adaptive-wrap-prefix-mode)
-
-(add-hook 'php-mode-hook (lambda ()
-    (defun ywb-php-lineup-arglist-intro (langelem)
-      (save-excursion
-        (goto-char (cdr langelem))
-        (vector (+ (current-column) c-basic-offset))))
-    (defun ywb-php-lineup-arglist-close (langelem)
-      (save-excursion
-        (goto-char (cdr langelem))
-        (vector (current-column))))
-    (c-set-offset 'arglist-intro 'ywb-php-lineup-arglist-intro)
-    (c-set-offset 'arglist-close 'ywb-php-lineup-arglist-close)))
 
 (setq-default web-mode-markup-indent-offset tab-width)
 (setq-default web-mode-css-indent-offset tab-width)
@@ -142,3 +83,19 @@
 (setq-default web-mode-sql-indent-offset tab-width)
 (setq web-mode-script-padding tab-width)
 (setq web-mode-markup-indent-offset tab-width)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(global-set-key (kbd "C-x g") 'magit-status)

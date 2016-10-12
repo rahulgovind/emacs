@@ -1,13 +1,11 @@
 ;;; pkg-info-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads (pkg-info-version-info pkg-info-package-version
-;;;;;;  pkg-info-defining-library-version pkg-info-defining-library-original-version
-;;;;;;  pkg-info-library-version pkg-info-library-original-version)
-;;;;;;  "pkg-info" "pkg-info.el" (22271 57946 526631 923000))
-;;; Generated autoloads from pkg-info.el
+;;;### (autoloads nil "pkg-info" "../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el"
+;;;;;;  "a0ede30a59fcaaa109bcc70302e4ef0a")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el
 
 (autoload 'pkg-info-library-original-version "pkg-info" "\
 Get the original version in the header of LIBRARY.
@@ -113,19 +111,26 @@ is the same as the LIBRARY version, do not include a package
 version.
 
 \(fn LIBRARY &optional PACKAGE SHOW)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "pkg-info" "../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pkg-info" '("pkg-info-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil nil ("pkg-info-pkg.el") (22271 57946 617364
-;;;;;;  919000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/pkg-info-0.6/pkg-info.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 
-(provide 'pkg-info-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; pkg-info-autoloads.el ends here

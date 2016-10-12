@@ -1,18 +1,26 @@
 ;;; linum-relative-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil nil ("linum-relative-pkg.el" "linum-relative.el")
-;;;;;;  (22228 32059 142673 986000))
+;;;### (autoloads "actual autoloads are elsewhere" "linum-relative"
+;;;;;;  "../../../../.emacs.d/elpa/linum-relative-0.4/linum-relative.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/linum-relative-0.4/linum-relative.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "linum-relative" '("linum-relative")))
 
 ;;;***
 
-(provide 'linum-relative-autoloads)
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/linum-relative-0.4/linum-relative-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/linum-relative-0.4/linum-relative.el")
+;;;;;;  (0 0 0 0))
+
+;;;***
+
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; linum-relative-autoloads.el ends here

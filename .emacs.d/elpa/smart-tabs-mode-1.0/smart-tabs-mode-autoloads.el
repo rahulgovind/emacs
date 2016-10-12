@@ -1,21 +1,18 @@
 ;;; smart-tabs-mode-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads (smart-tabs-add-language-support smart-tabs-insinuate
-;;;;;;  smart-tabs-advice smart-tabs-mode-enable smart-tabs-mode
-;;;;;;  smart-tabs-create-language-advice smart-tabs-create-advice-list
-;;;;;;  smart-tabs-when) "smart-tabs-mode" "smart-tabs-mode.el" (22229
-;;;;;;  51532 171055 105000))
-;;; Generated autoloads from smart-tabs-mode.el
+;;;### (autoloads nil "smart-tabs-mode" "../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode.el"
+;;;;;;  "73f57a41765eb9e8ad9b4488b47e4eaf")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode.el
 
 (autoload 'smart-tabs-when "smart-tabs-mode" "\
 
 
 \(fn CONDITION ADVICE-LIST)" nil t)
 
-(put 'smart-tabs-when 'lisp-indent-function '1)
+(function-put 'smart-tabs-when 'lisp-indent-function '1)
 
 (autoload 'smart-tabs-create-advice-list "smart-tabs-mode" "\
 
@@ -31,7 +28,7 @@ simplifies the creation of such a cons cell.
 
 \(fn LANG MODE-HOOK ADVICE-LIST &rest BODY)" nil t)
 
-(put 'smart-tabs-create-language-advice 'lisp-indent-function '2)
+(function-put 'smart-tabs-create-language-advice 'lisp-indent-function '2)
 
 (autoload 'smart-tabs-mode "smart-tabs-mode" "\
 Intelligently indent with tabs, align with spaces!
@@ -61,20 +58,28 @@ Add support for a language not already in the `smart-tabs-insinuate-alist'.
 
 \(fn LANG MODE-HOOK ADVICE-LIST &rest BODY)" nil t)
 
-(put 'smart-tabs-add-language-support 'lisp-indent-function '2)
+(function-put 'smart-tabs-add-language-support 'lisp-indent-function '2)
+
+;;;### (autoloads "actual autoloads are elsewhere" "smart-tabs-mode"
+;;;;;;  "../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "smart-tabs-mode" '("smart-tabs-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil nil ("smart-tabs-mode-pkg.el") (22229 51532
-;;;;;;  259322 247000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/smart-tabs-mode-1.0/smart-tabs-mode.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
-(provide 'smart-tabs-mode-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; smart-tabs-mode-autoloads.el ends here

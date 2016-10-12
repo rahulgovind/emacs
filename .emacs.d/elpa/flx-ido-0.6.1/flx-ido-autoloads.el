@@ -1,15 +1,16 @@
 ;;; flx-ido-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads (flx-ido-mode) "flx-ido" "flx-ido.el" (22272 54159
-;;;;;;  610710 135000))
-;;; Generated autoloads from flx-ido.el
+;;;### (autoloads nil "flx-ido" "../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido.el"
+;;;;;;  "986bdaa9a1535058fa8a9acea73cac37")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido.el
 
 (defvar flx-ido-mode nil "\
 Non-nil if Flx-Ido mode is enabled.
-See the command `flx-ido-mode' for a description of this minor mode.")
+See the `flx-ido-mode' command
+for a description of this minor mode.")
 
 (custom-autoload 'flx-ido-mode "flx-ido" nil)
 
@@ -17,19 +18,26 @@ See the command `flx-ido-mode' for a description of this minor mode.")
 Toggle flx ido mode
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "flx-ido" "../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "flx-ido" '("flx-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil nil ("flx-ido-pkg.el") (22272 54159 683489
-;;;;;;  403000))
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/flx-ido-0.6.1/flx-ido.el") (0
+;;;;;;  0 0 0))
 
 ;;;***
 
-(provide 'flx-ido-autoloads)
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; flx-ido-autoloads.el ends here

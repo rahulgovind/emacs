@@ -3,8 +3,9 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "async" "async.el" (0 0 0 0))
-;;; Generated autoloads from async.el
+;;;### (autoloads nil "async" "../../../../.emacs.d/elpa/async-1.9/async.el"
+;;;;;;  "ea46d854928d301701b55101aae7ba79")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/async.el
 
 (autoload 'async-start-process "async" "\
 Start the executable PROGRAM asynchronously.  See `async-start'.
@@ -65,12 +66,20 @@ returns nil.  It can still be useful, however, as an argument to
 `async-ready' or `async-wait'.
 
 \(fn START-FUNC &optional FINISH-FUNC)" nil nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "async" "../../../../.emacs.d/elpa/async-1.9/async.el"
+;;;;;;  (0 0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/async.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "async" '("async-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil "async-bytecomp" "async-bytecomp.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from async-bytecomp.el
+;;;### (autoloads nil "async-bytecomp" "../../../../.emacs.d/elpa/async-1.9/async-bytecomp.el"
+;;;;;;  "c3f92425d089a0a8527673e0882c2fb5")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/async-bytecomp.el
 
 (autoload 'async-byte-recompile-directory "async-bytecomp" "\
 Compile all *.el files in DIRECTORY asynchronously.
@@ -80,7 +89,8 @@ All *.elc files are systematically deleted before proceeding.
 
 (defvar async-bytecomp-package-mode nil "\
 Non-nil if Async-Bytecomp-Package mode is enabled.
-See the command `async-bytecomp-package-mode' for a description of this minor mode.
+See the `async-bytecomp-package-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `async-bytecomp-package-mode'.")
@@ -93,15 +103,26 @@ Async compilation of packages can be controlled by
 `async-bytecomp-allowed-packages'.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "async-bytecomp"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/async-bytecomp.el" (0
+;;;;;;  0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/async-bytecomp.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "async-bytecomp" '("async-byte")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil "dired-async" "dired-async.el" (0 0 0 0))
-;;; Generated autoloads from dired-async.el
+;;;### (autoloads nil "dired-async" "../../../../.emacs.d/elpa/async-1.9/dired-async.el"
+;;;;;;  "12797f6564f1b069dd549214d979ce2d")
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/dired-async.el
 
 (defvar dired-async-mode nil "\
 Non-nil if Dired-Async mode is enabled.
-See the command `dired-async-mode' for a description of this minor mode.
+See the `dired-async-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `dired-async-mode'.")
@@ -112,11 +133,32 @@ or call the function `dired-async-mode'.")
 Do dired actions asynchronously.
 
 \(fn &optional ARG)" t nil)
+
+;;;### (autoloads "actual autoloads are elsewhere" "dired-async"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/dired-async.el" (0 0
+;;;;;;  0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/dired-async.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dired-async" '("dired-async-")))
+
+;;;***
 
 ;;;***
 
-;;;### (autoloads nil nil ("async-pkg.el" "smtpmail-async.el") (0
+;;;### (autoloads "actual autoloads are elsewhere" "smtpmail-async"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/smtpmail-async.el" (0
 ;;;;;;  0 0 0))
+;;; Generated autoloads from ../../../../.emacs.d/elpa/async-1.9/smtpmail-async.el
+
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "smtpmail-async" '("async-smtpmail-")))
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../.emacs.d/elpa/async-1.9/async-autoloads.el"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/async-bytecomp.el" "../../../../.emacs.d/elpa/async-1.9/async-pkg.el"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/async.el" "../../../../.emacs.d/elpa/async-1.9/dired-async.el"
+;;;;;;  "../../../../.emacs.d/elpa/async-1.9/smtpmail-async.el")
+;;;;;;  (0 0 0 0))
 
 ;;;***
 
