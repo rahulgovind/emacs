@@ -8,7 +8,7 @@
 (package-initialize) 
 
 (setq package-selected-packages
-      '(projectile flx-ido linum-relative smart-tabs-mode adapative-wrap web-mode magit))
+      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit))
 (package-install-selected-packages)
 
 (require 'ido)
@@ -99,3 +99,11 @@
  )
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "M-c") 'compile)
+
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'ctrl))
+
+
+  
