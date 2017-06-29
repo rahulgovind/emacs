@@ -8,7 +8,7 @@
 (package-initialize) 
 
 (setq package-selected-packages
-      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit))
+      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))
 (package-install-selected-packages)
 
 (require 'ido)
