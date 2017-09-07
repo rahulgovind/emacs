@@ -8,9 +8,8 @@
 (package-initialize) 
 
 (setq package-selected-packages
-      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))
+      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode zenburn-theme))
 (package-install-selected-packages)
-
 (require 'ido)
 (require 'flx-ido)
 (ido-mode t)
@@ -42,8 +41,8 @@
 ;;; Color Theme ;;;
 ;-----------------;
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'monokai)
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
 (require 'linum-relative)
 
 (add-hook 'html-mode-hook
@@ -90,7 +89,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default))))
+	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default)))
+ '(package-selected-packages
+   (quote
+	(zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,4 +108,13 @@
   (setq mac-command-modifier 'ctrl))
 
 
-  
+;; Change default window size
+(setq initial-frame-alist
+	  '(
+		(width . 180) ;character
+		(height . 54) ; lines
+		))
+
+;; When using doc-view,
+;; make sure page width is the width of the window
+(add-hook 'doc-view-mode-hook 'doc-view-fit-width-to-window)
