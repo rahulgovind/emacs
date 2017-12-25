@@ -8,7 +8,8 @@
 (package-initialize) 
 
 (setq package-selected-packages
-      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode zenburn-theme))
+      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode
+				   magit php-mode rust-mode zenburn-theme org-bullets jedi))
 (package-install-selected-packages)
 (require 'ido)
 (require 'flx-ido)
@@ -82,23 +83,6 @@
 (setq-default web-mode-sql-indent-offset tab-width)
 (setq web-mode-script-padding tab-width)
 (setq web-mode-markup-indent-offset tab-width)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default)))
- '(package-selected-packages
-   (quote
-	(zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-c") 'compile)
@@ -118,3 +102,67 @@
 ;; When using doc-view,
 ;; make sure page width is the width of the window
 (add-hook 'doc-view-mode-hook 'doc-view-fit-width-to-window)
+
+;; Previous and next command in shell
+(require 'comint)
+(define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
+(define-key comint-mode-map (kbd "<down>") 'comint-next-input)
+
+;; Limit to 80
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail))
+(setq fill-column 80)
+
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
+;; PEP-8
+(add-to-list 'load-path "~/.emacs.d/py-autopep8")
+(require 'py-autopep8)
+(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+(setq py-autopep8-options '("--max-line-length=80"))
+
+(require 'epa-file)
+(epa-file-enable)
+
+;; Org-mode pretty bullets
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)))
+
+;; Set shortcut for org-mode
+(global-set-key (kbd "C-c l") 'org-store-link)
+
+;; Python autocomplete
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-show-menu-immediately-on-auto-complete t)
+
+(require 'jedi)
+(setq jedi:complete-on-dot t)
+(add-to-list 'ac-sources 'ac-source-jedi-direct)
+(add-hook 'python-mode-hook 'jedi:setup)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default)))
+ '(epa-pinentry-mode (quote loopback))
+ '(global-visual-line-mode t)
+ '(package-selected-packages
+   (quote
+	(wc-mode py-autopep8 company-math company-jedi cython-mode jedi zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
