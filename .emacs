@@ -1,22 +1,26 @@
 (require 'package) 
 
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) 
 
-(setq package-selected-packages
-      '(projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode
-				   magit php-mode rust-mode zenburn-theme org-bullets jedi))
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives
+			 '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+(setq package-selected-packages '(projectile flx-ido
+      linum-relative smart-tabs-mode adaptive-wrap web-mode magit
+      php-mode rust-mode zenburn-theme org-bullets jedi
+      cython-mode ein))
 (package-install-selected-packages)
 (require 'ido)
 (require 'flx-ido)
 (ido-mode t)
 (flx-ido-mode 1)
 (put 'erase-buffer 'disabled nil)
-
 
 ;-------------------------;
 ;;; Syntax Highlighting ;;;
@@ -108,11 +112,13 @@
 (define-key comint-mode-map (kbd "<up>") 'comint-previous-input)
 (define-key comint-mode-map (kbd "<down>") 'comint-next-input)
 
+(require 'ox)
+
 ;; Limit to 80
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
 (setq whitespace-style '(face lines-tail))
-(setq fill-column 80)
+(setq-default fill-column 80)
 
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
@@ -159,10 +165,15 @@
  '(global-visual-line-mode t)
  '(package-selected-packages
    (quote
-	(wc-mode py-autopep8 company-math company-jedi cython-mode jedi zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode))))
+	(sublimity centered-window-mode ox-reveal wc-mode py-autopep8 company-math company-jedi cython-mode jedi zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode)))
+ '(scroll-conservatively 10000)
+ '(scroll-step 1))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(fringe ((t (:background "#3F3F3F")))))
+
+(setq cwm-ignore-buffer-predicates nil)
+
