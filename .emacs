@@ -9,11 +9,12 @@
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives
 			 '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+;; (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (setq package-selected-packages '(projectile flx-ido
       linum-relative smart-tabs-mode adaptive-wrap web-mode magit
-      php-mode rust-mode zenburn-theme org-bullets jedi
+      php-mode rust-mode zenburn-theme org-bullets
       cython-mode ein))
 (package-install-selected-packages)
 (require 'ido)
@@ -34,6 +35,9 @@
 (setq jit-lock-contextually t)
 (setq jit-lock-stealth-verbose t)
 
+; Hack font
+(when (eq system-type 'darwin)
+      (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
 ; if there is size information associated with text, change the text
 ; size to reflect it
 (size-indication-mode t)
@@ -139,9 +143,13 @@
  'org-babel-load-languages
  '((python . t)))
 
-;; Set shortcut for org-mode
-(global-set-key (kbd "C-c l") 'org-store-link)
+;; Org-mode source blocks
+(setq org-src-tab-acts-natively t)
 
+;; Set shortcut for org-mode
+(global-set-key (kbd "C-c t") (lambda () (interactive)
+								(org-insert-time-stamp (current-time))))
+(global-set-key (kbd "C-c l") 'org-store-link)
 ;; Python autocomplete
 (require 'auto-complete-config)
 (ac-config-default)
@@ -163,9 +171,10 @@
 	("97084a13605260fbe13aa89c2ababb876014d7d3b63879c69c8439d25ab3fb8f" default)))
  '(epa-pinentry-mode (quote loopback))
  '(global-visual-line-mode t)
+ '(package-check-signature nil)
  '(package-selected-packages
    (quote
-	(sublimity centered-window-mode ox-reveal wc-mode py-autopep8 company-math company-jedi cython-mode jedi zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode)))
+	(ox-html5slide elpy djvu mmm-mode ox-twbs multiple-cursors sublimity centered-window-mode ox-reveal wc-mode py-autopep8 company-math cython-mode zenburn-theme markdown-mode projectile flx-ido linum-relative smart-tabs-mode adaptive-wrap web-mode magit php-mode rust-mode)))
  '(scroll-conservatively 10000)
  '(scroll-step 1))
 (custom-set-faces
@@ -177,3 +186,16 @@
 
 (setq cwm-ignore-buffer-predicates nil)
 
+(defun unfill-paragraph ()
+  "Takes a multi-line paragraph and makes it into a single line of text."
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(package-initialize)
+(elpy-enable)
+
+; (add-to-list 'load-path "~/.emacs.d/external/org-reveal")
+(require 'ox-reveal)
+(require 'ox-twbs)
